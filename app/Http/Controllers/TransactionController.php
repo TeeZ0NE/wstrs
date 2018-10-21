@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Transaction\TransactionResource;
 use Illuminate\Http\Request;
+use App\Models\{Transaction};
 
 class TransactionController extends Controller
 {
@@ -13,7 +15,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //
+      return Transaction::all();
     }
 
     /**
@@ -35,7 +37,7 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        //
+        return new TransactionResource(Transaction::find($id));
     }
 
     /**
@@ -60,4 +62,35 @@ class TransactionController extends Controller
     {
         //
     }
+
+	/**
+	 * Get transaction with attributes
+	 *
+	 * @param $customerid
+	 * @param $transactionid
+	 * @return TransactionResource
+	 */
+	public function get($customerid,$transactionid)
+	{
+		$transaction_m = new Transaction();
+		$transaction = $transaction_m->getTransactionById($customerid,$transactionid);
+		return new TransactionResource($transaction, $customerid);
+	}
+
+	/**
+	 * Get transaction with filter
+	 *
+	 * @param $customerid
+	 * @param Request $request
+	 * @return \Illuminate\Database\Eloquent\Collection|static[]
+	 */
+	public function filter($customerid, Request $request)
+	{
+		$amount = (double)$request->amount;
+		$date = $request->date;
+		$offset = (int)$request->offset;
+		$limit = ($request->limit)?(int)$request->limit:1;
+		$transaction_m = new Transaction();
+		return $transaction_m->getFullTransactionFromSearch((int)$customerid,$amount,$date,$offset,$limit);
+	}
 }

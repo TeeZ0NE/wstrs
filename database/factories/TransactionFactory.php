@@ -5,9 +5,9 @@ use App\Models\{Transaction,Card,User};
 $factory->define(Transaction::class, function (Faker $faker) {
 
     return [
-        'user_id'=>function(){return $user_id=User::all()->random();},
-	    'card_id'=>function($user_id){return $id=Card::where('user_id',(int)$user_id)->first()->id;},
+        'user_id'=>function(){return User::all()->random();},
+	    'card_id'=>function(){return Card::all()->random();},
 	    'amount'=>$faker->randomDigit,
-	    'date'=>$faker->date(now())
+	    'date'=>$faker->dateTimeBetween('-1 week','+1 week')
     ];
 });

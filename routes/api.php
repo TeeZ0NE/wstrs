@@ -17,5 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/transactions','TransactionController');
-Route::get('customer/{name}/{cnp}','UserController')->name('user.add');
+Route::apiResource('transactions','TransactionController');
+Route::group(['prefix' => 'transactions'], function () {
+	Route::get('{customerid}/filter','TransactionController@filter');
+	Route::get('{customerid}/{transactionid}','TransactionController@get');
+});

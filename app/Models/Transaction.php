@@ -63,11 +63,12 @@ class Transaction extends Model
 	 */
 	public function getFullTransactionFromSearch(int $user_id, float $amount, string $date, int $offset = 0, int $limit = 1)
 	{
-		return $this::with(['user', 'card'])->
+		return $this->
+			select('user_id as customerId','id as transactionId','card_id as cardId','amount','date')->
 		where([
 			['user_id', '=', $user_id],
 			['amount', '=', $amount],
-			['date', '=', date(Carbon::now()->toDateString($date))]
+			['date', '=', date(Carbon::parse($date)->format('Y-m-d'))]
 		])->
 		offset($offset)->
 		limit($limit)->

@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('customer/{name}/{cnp}','UserController')->name('user.add');
 /*
 Route::group(['prefix' => 'transaction'], function () {
 	Route::get('{customerid}/filter','TransactionController@filter');

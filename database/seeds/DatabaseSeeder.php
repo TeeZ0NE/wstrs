@@ -13,8 +13,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          $this->call(CustomerSeeder::class);
-         factory(User::class,10)->create();
-         factory(Card::class,10)->create();
-         factory(Transaction::class,10)->create();
+         factory(User::class,20)->create();
+         factory(Card::class,20)->create();
+         factory(Transaction::class,100)->create();
     }
 }
