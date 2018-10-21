@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,8 +23,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Transaction $transaction)
     {
-        return view('home');
+    	$transactions = $transaction->getTransaction4GuiUser(Auth::user()->id);
+        return view('home')->with([
+        	'transactions'=>$transactions,
+	        'links'=>$transactions->links()
+        ]);
     }
 }

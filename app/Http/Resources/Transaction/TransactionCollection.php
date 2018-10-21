@@ -2,9 +2,9 @@
 
 namespace App\Http\Resources\Transaction;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\Resource;
 
-class TransactionCollection extends ResourceCollection
+class TransactionCollection extends Resource
 {
     /**
      * Transform the resource collection into an array.
@@ -15,12 +15,10 @@ class TransactionCollection extends ResourceCollection
     public function toArray($request)
     {
     	return [
-    		'data'=>[
     		'transactionId'=>$this->id,
 		    'customerId'=>$this->user_id,
 		    'amount'=>$this->amount,
 		    'date'=>$this->date,
-			    ]
 	    ];
 //        return parent::toArray($request);
     }

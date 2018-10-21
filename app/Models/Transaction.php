@@ -108,4 +108,36 @@ class Transaction extends Model
 			return 'fail';
 		}
 	}
+
+	/**
+	 * Get user transaction
+	 *
+	 * @param int $user_id
+	 * @return mixed
+	 */
+	public function getTransaction4UserViaApi(int $user_id)
+	{
+		return $this->where('user_id',$user_id)->get();
+	}
+
+	/**
+	 * Get Transaction and card details 4 gui user
+	 *
+	 * @param int $user_id
+	 * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+	 */
+	public function getTransaction4GuiUser(int $user_id)
+	{
+		return $this->with(['card'])->where('user_id',$user_id)->paginate(5);
+	}
+
+	/**
+	 * Get total sum by yesterday
+	 *
+	 * @return mixed
+	 */
+	public function totalYestrdayAmount()
+	{
+		return $this->where('date',Carbon::now()->Yesterday())->sum('amount');
+	}
 }
