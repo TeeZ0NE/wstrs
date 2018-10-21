@@ -10,4 +10,4 @@ if (file_exists($compiledPath))
 }
 use App\Models\Transaction;
 $transaction_m = new Transaction();
-file_put_contents(storage_path().'/app/public/cron/amount.txt',sprintf('Date: %s, amount: %.2f',\Carbon\Carbon::now()->yesterday(),$transaction_m->totalYestrdayAmount()),FILE_APPEND);
+file_put_contents(storage_path().'/app/public/cron/amount.txt',sprintf("Date: %s, amount: %.2f \n",\Carbon\Carbon::now()->yesterday()->toDateString(),$transaction_m->totalYestrdayAmount()),FILE_APPEND);
