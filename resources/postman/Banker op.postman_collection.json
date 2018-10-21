@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "fd38b889-a755-4959-a65c-abf521f93bb1",
+		"name": "Banker op",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "save new banker user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/customer/Tomar/2288444422221111?yy=22&mm=10&cvv2=127",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"customer",
+						"Tomar",
+						"2288444422221111"
+					],
+					"query": [
+						{
+							"key": "yy",
+							"value": "22"
+						},
+						{
+							"key": "mm",
+							"value": "10"
+						},
+						{
+							"key": "cvv2",
+							"value": "127"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store new customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/customer/Tomar/2288444422221111?yy=22&mm=10&cvv2=127",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"customer",
+						"Tomar",
+						"2288444422221111"
+					],
+					"query": [
+						{
+							"key": "yy",
+							"value": "22"
+						},
+						{
+							"key": "mm",
+							"value": "10"
+						},
+						{
+							"key": "cvv2",
+							"value": "127"
+						}
+					]
+				},
+				"description": "http://localhost:8000/customer/Tomar/2288444422221111?yy=22&mm=10&cvv2=127"
+			},
+			"response": []
+		}
+	]
+}
