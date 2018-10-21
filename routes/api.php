@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('/transactions','TransactionController');
+Route::get('customer/{name}/{cnp}','UserController')->name('user.add');
