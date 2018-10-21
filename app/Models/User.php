@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens,Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -47,4 +48,8 @@ class User extends Authenticatable
 	{
 		return $this::firstOrCreate(['username'=>$name],['password'=>bcrypt($pass),'email'=>$email])->id;
     }
+
+	public function findForPassport($identifier) {
+		return $this->orWhere('email', $identifier)->orWhere('username', $identifier)->first();
+	}
 }
