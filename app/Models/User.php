@@ -44,9 +44,9 @@ class User extends Authenticatable
 	 * @param string|null $email
 	 * @return int ID
 	 */
-	public function getCustomerId(string $name, string $pass='111111', string $email=null):int
+	public function getCustomerId(string $name, string $pass='111111', string $email=null)
 	{
-		return $this::firstOrCreate(['username'=>$name],['password'=>bcrypt($pass),'email'=>$email])->id;
+		return $this::firstOrCreate(['username'=>$name],['password'=>bcrypt($pass),'email'=>$email]);
     }
 
 	public function findForPassport($identifier) {

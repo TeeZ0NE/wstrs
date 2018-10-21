@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use App\Models\{User, Card};
 
@@ -20,8 +21,8 @@ class UserController extends Controller
 		$user_id = $user_m->getCustomerId($name);
 		if($user_id){
 			$card_m = new Card();
-			$card_id = $card_m->getCardIdWithData($user_id,$card);
-			return $user_id;
+			$card_id = $card_m->getCardIdWithData($user_id->id,$card);
+			return new UserResource($user_id);
 		}
 		return null;
     }
