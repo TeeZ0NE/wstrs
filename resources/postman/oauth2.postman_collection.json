@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "a73ba656-3e21-4837-884c-d7a9a5496531",
+		"name": "oauth2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjcxMDBkNWI3OGM5MTJmZTUzZTQxOWE1MTRhZmFjZTQ5MDdjYTUzZmRiZWZmNzFmYjk4ZjMwZTIyYjVkNmUwYTQzMzEzZGU5OGYzYjA3OWI1In0.eyJhdWQiOiIzIiwianRpIjoiNzEwMGQ1Yjc4YzkxMmZlNTNlNDE5YTUxNGFmYWNlNDkwN2NhNTNmZGJlZmY3MWZiOThmMzBlMjJiNWQ2ZTBhNDMzMTNkZTk4ZjNiMDc5YjUiLCJpYXQiOjE1NDAxMzY1NzgsIm5iZiI6MTU0MDEzNjU3OCwiZXhwIjoxNTcxNjcyNTc4LCJzdWIiOiI2Iiwic2NvcGVzIjpbXX0.eOCXo__KnDc1tDHRAHlIjVeXnh73hywqZEIsXPvd1NWx6DcLY6qbKdWfxaamp0ex6LgbSB1IKdf1EzyKcis6VZtPbxxdWPmQvpoNjoCKA-DNLBBjPURH7imxXSDfZ6zUD3B3guSWTsKUqmfVQgqabWvyhpfoi3aWSe9g3-4HnsIXmfi6ur5R4pegEAVsMilz6mpIWkSdVM1eXyGUdNfoPaeJ08V0O8sM4XVkmnj72NZXjkCJXZWx0ef0Kd8AnffP2QcltMFswsQn5rC-n_zZ7w7SlHe_ec1I4LcsXKu3lFYgSH186ZxQTUH9riGpvI9hYiT5MPDErHbPx3G9aSkaIMBuDDob312EuwnKbIekOpsZpArQx_E1DjJyJ-vUiPiEoxG0__i8fs951P4VN655XEPtBqOrp8gp_CsdghdOxptc-KMrYDcn7FMKipsPp-jCiapBcOhoN4gcIp4sHE_p7wdHmzNTjF0IDHSkQ-fEgSpeyWQRRZqdMSE2s8EXOFeLlXM2v4cDAPNc7V7cx96JZZ5WAxH5c0s8HmxSvmu2KDTyAi_Hn6S06COH9ng7rHiKRuNcq8I_lMNEeZL-PAGRXpu3ngPmY_007s_kQy1_OcKNB1hOhRTC54hftuKtDG9QSJkBF_wGhCfWLjHm5AnlsnTK-NQwcZFwM-2L8jgCQ-g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"grant_type\":\"password\",\n\t\"client_id\":\"3\",\n\t\"client_secret\": \"YDZ9iH6PRtLFNOtudQoK7Ep9TDAck0XzA9zkjDEe\",\n\t\"password\": \"111111\",\n\t\"username\":\"Ms. Kenna Conn III\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user"
+					],
+					"query": [
+						{
+							"key": "accept",
+							"value": "application",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/oauth/token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"grant_type\":\"password\",\n\t\"client_id\":\"3\",\n\t\"client_secret\": \"YDZ9iH6PRtLFNOtudQoK7Ep9TDAck0XzA9zkjDEe\",\n\t\"password\": \"111111\",\n\t\"username\":\"Ms. Kenna Conn III\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "accept",
+							"value": "application",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

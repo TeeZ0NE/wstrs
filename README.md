@@ -23,7 +23,7 @@ Method `getFirstCardId` will return first matching user's card.
 The model has relations with User and Card.
 A method _getFullTransactionSearch_ using condition `And` but if we want to get wider results we should to use `Or` condition.
 A filter method takes attributes, f.e.
-`APP_URL/transaction/2/filter?date=20.10.2018&amount=12.56`
+`APP_URL/api/transaction/2/filter?date=20.10.2018&amount=12.56`
 
 Date can be in different variations:
 
@@ -32,3 +32,18 @@ Date can be in different variations:
 - or 2018_10_20
 
 _customerid_, _amount_ and _date_ is required but offset (by default is 0) and limit (is 1) will fill with defaults. Feel free to change attributes sequence
+
+
+### CRON
+The file with statistic is in Storage folder and available from URL 
+`APP_UR/storage/cron/amount.txt`
+
+[cron file](https://github.com/TeeZ0NE/wstrs/blob/master/resources/cron/cron.txt)
+
+### Postman Collections
+[Transaction](https://github.com/TeeZ0NE/wstrs/blob/master/resources/postman/Banker%20op.postman_collection.json)<br>
+[OAuth](https://github.com/TeeZ0NE/wstrs/blob/master/resources/postman/oauth2.postman_collection.json)
+
+**User loged in**
+
+![](https://github.com/TeeZ0NE/wstrs/blob/master/resources/graph/customer_dashboard.png)

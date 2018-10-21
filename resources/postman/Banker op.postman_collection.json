@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "save new banker user",
+			"name": "getting transaction with user id",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -15,30 +15,17 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8000/customer/Tomar/2288444422221111?yy=22&mm=10&cvv2=127",
+					"raw": "http://localhost:8000/api/transactions/14/12",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"customer",
-						"Tomar",
-						"2288444422221111"
-					],
-					"query": [
-						{
-							"key": "yy",
-							"value": "22"
-						},
-						{
-							"key": "mm",
-							"value": "10"
-						},
-						{
-							"key": "cvv2",
-							"value": "127"
-						}
+						"api",
+						"transactions",
+						"14",
+						"12"
 					]
 				}
 			},
@@ -81,6 +68,236 @@
 					]
 				},
 				"description": "http://localhost:8000/customer/Tomar/2288444422221111?yy=22&mm=10&cvv2=127"
+			},
+			"response": []
+		},
+		{
+			"name": "get transaction by filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/transactions/14/filter?date=2018-10-20&limit=10&amount=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transactions",
+						"14",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2018-10-20"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "amount",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "index 2 user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{auth}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{auth}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"amount\":10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "10",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update transaction",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{auth}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"amount\":10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/transactions/170",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transactions",
+						"170"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "10",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destroy transaction",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{auth}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"amount\":10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/transactions/62",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transactions",
+						"62"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "10",
+							"disabled": true
+						}
+					]
+				}
 			},
 			"response": []
 		}
