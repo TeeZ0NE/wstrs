@@ -2,7 +2,7 @@
 ![](https://github.com/TeeZ0NE/banker/blob/dev/resources/graph/db.jpg)
 + Seed tables with data using a flag `--seed`
 + PHPUnit testing with _CustomerTest_
-
++ `php artisan store:sum` will execute store total sum commands and return massage, conclusion does file stored
 **CNP**
 
 `APP_URL/customer/Tomer/8888444422221111?yy=22&mm=10&cvv2=545`
